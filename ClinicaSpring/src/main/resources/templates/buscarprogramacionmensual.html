@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8"></meta>
+<title>Buscar ProgramaMensual</title>
+<script type="text/javascript"
+	src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.16.0/jquery.validate.js"></script>
+<link
+	href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
+	rel="stylesheet" id="bootstrap-css"></link>
+<script
+	src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+</head>
+<body>
+	<div th:replace="fragments/header :: header"></div>
+	<div class="container">
+		<form th:action="@{/programacionmensual/buscar}" method="post"
+			th:object="${programacionmensual}">
+
+
+			<div class="form-group">
+				<label for="nombreProgramacionMensual">Buscar:</label> <input type="text"
+					class="form-control" th:field="*{nombreProgramacionMensual}" id="nombreProgramacionMensual"></input>
+			</div>
+			<button type="submit" class="btn btn-primary">Aceptar</button>
+			<a href="/programacionmensual/listar" class="btn btn-danger">Cancelar</a>
+
+		</form>
+
+		<table class="table table-bordered table-hover table-striped"
+			id="tab_logic">
+			<thead>
+				<tr>
+					            <th class="text-center">Codigo</th>
+								<th class="text-center">Consultorio</th>
+								<th class="text-center">HorarioMensual</th>
+								<th class="text-center">Fecha</th>
+								<th class="text-center">Estado</th>
+								<th class="text-center">Operacion</th>
+								<th class="text-center">Operacion</th>
+				</tr>
+			</thead>
+			<tbody>
+			                    <tr th:each="p: ${listaProgramacioMensuales}">
+								<td th:text="${p.idProgramacioMensual}"></td>
+								<td th:text="${p.consultorio.idConsultorio}"></td>
+								<td th:text="${p.horariomensual.idHorarioMensual}"></td>
+								<td th:text="${p.fechaprogramacion}"></td>
+							    <td th:text="${p.estado}"></td>
+				</tr>
+			</tbody>
+		</table>
+
+
+		<div th:if="${mensaje}" class="alert alert-info">
+			<p th:text="${mensaje}"></p>
+		</div>
+	</div>
+	<div th:replace="fragments/footer :: footer"></div>
+
+</body>
+</html>

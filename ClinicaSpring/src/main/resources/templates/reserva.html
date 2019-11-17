@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1"></meta>
+<title>Reserva</title>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<link
+	href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
+	rel="stylesheet" id="bootstrap-css"></link>
+
+<script
+	src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+	<div th:replace="fragments/header :: header"></div>
+	<div class="container">
+	<form th:action="@{/reserva/registrar}" method="post" th:object="${reserva}" action="">
+		<div class="form-group">
+		<label for="idReserva">Id:</label>
+		<input type="text" th:field="*{idReserva}"></input>
+		
+		<div class="form-group">	
+		
+			
+		
+		    <label for="nombreReserva">Nombre:</label>
+			<input type="text" th:field="*{nombreReserva}"
+			class="form-control" id="nombre"></input>		
+
+			<div class="alert alert-danger"
+			th:if="${#fields.hasErrors('nombreReserva')}"
+			th:errors="*{nombreReserva}"></div>
+	
+			<label for="fechareserva">Fecha:</label>
+			<input type="text" th:field="*{fechareserva}"
+			class="form-control" id="fecha"></input>		
+
+			<div class="alert alert-danger"
+			th:if="${#fields.hasErrors('fechareserva')}"
+			th:errors="*{fechareserva}"></div>
+			
+				<label for="horareserva">Hora:</label>
+			<input type="text" th:field="*{horareserva}"
+			class="form-control" id="hora"></input>		
+
+			<div class="alert alert-danger"
+			th:if="${#fields.hasErrors('horareserva')}"
+			th:errors="*{horareserva}"></div>
+			
+			
+				<label for="historialclinico" class="col-sm-2 col.form-label">HistorialClinico:</label>
+			<select class="form-control"  th:field="*{historialclinico.idHistorialClinico}">
+			<option th:each="historialclinico ${listaHistorialClinicos}" th:value="${historialclinico.idHistorialClinico}" 
+				th:text="${historialclinico.descripcion}" 
+				th:selected="(${historialclinico.idHistorialClinic}==*{historialclinico.idHistorialClinico})"></option>
+			</select>
+			
+				<label for="programacionmensual" class="col-sm-2 col.form-label">ProgramacionMensual:</label>
+			<select class="form-control"  th:field="*{programacionmensual.idProgramacionMensual}">
+			<option th:each="programacionmensual ${listaProgramacionMensuales}" th:value="${programacionmensual.idProgramacionMensual}" 
+				th:text="${programacionmensual.descripcion}" 
+				th:selected="(${programacionmensual.idProgramacionMensual}==*{programacionmensual.idProgramacionMensual})"></option>
+			</select>
+			
+							<label for="cliente" class="col-sm-2 col.form-label">Cliente:</label>
+			<select class="form-control"  th:field="*{cliente.DNI}">
+			<option th:each="programacionmensual ${listaClientes}" th:value="${cliente.DNI}" 
+				th:text="${cliente.descripcion}" 
+				th:selected="(${cliente.DNI}==*{cliente.DNI})"></option>
+			</select>
+			
+			
+			
+		
+	</div>
+	</div>
+	<button type="submit" class="btn btn-primary">Aceptar</button>
+	<a th:href="@{/reserva/listar}" class="btn btn-danger">Cancelar</a>
+	</form>
+	</div>
+	<div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>

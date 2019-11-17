@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1"></meta>
+<title>ProgramacionMensual</title>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<link
+	href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
+	rel="stylesheet" id="bootstrap-css"></link>
+
+<script
+	src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+	<div th:replace="fragments/header :: header"></div>
+	<div class="container">
+	<form th:action="@{/programacionmensual/registrar}" method="post" th:object="${programacionmensual}" action="">
+		<div class="form-group">
+		<label for="idProgramacionMensual">Id:</label>
+		<input type="text" th:field="*{idProgramacionMensual}"></input>
+		
+		<div class="form-group">
+<label for="consultorio" class="col-sm-2 col.form-label">Consultorio:</label>
+			<select class="form-control"  th:field="*{consultorio.idConsultorio}">
+			<option th:each="consultorio ${listaConsultorio}" th:value="${consultorio.idConsultorio}" 
+				th:text="${consultorio.descripcion}" 
+				th:selected="(${consultorio.idConsultorio}==*{consultorio.idConsultorio})"></option>
+			</select>
+		
+		<label for="horariomensual" class="col-sm-2 col.form-label">HorarioMensual:</label>
+			<select class="form-control"  th:field="*{horariomensual.idHorarioMensual}">
+			<option th:each="horariomensual ${listaHorarioMensual}" th:value="${horariomensual.idHorarioMensual}" 
+				th:text="${horariomensual.descripcion}" 
+				th:selected="(${horariomensual.idHorarioMensual}==*{horariomensual.idHorarioMensual})"></option>
+			</select>
+		
+				
+			<label for="fechaprogramacion">FechaProgramacion:</label>
+			<input type="text" th:field="*{fechaprogramacion}"
+			class="form-control" id="fecha1"></input>		
+
+			<div class="alert alert-danger"
+			th:if="${#fields.hasErrors('fechaprogramacion')}"
+			th:errors="*{fechaprogramacion}"></div>
+			
+			<label for="estado">Estado:</label>
+			<input type="text" th:field="*{estado}"
+			class="form-control" id="estado1"></input>		
+
+			<div class="alert alert-danger"
+			th:if="${#fields.hasErrors('estado')}"
+			th:errors="*{estado}"></div>	
+
+			
+
+	</div>
+	</div>
+	<button type="submit" class="btn btn-primary">Aceptar</button>
+	<a href="/tip/listar" class="btn btn-danger">Cancelar</a>
+	</form>
+	</div>
+	<div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>

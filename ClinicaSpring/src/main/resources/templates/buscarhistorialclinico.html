@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8"></meta>
+<title>HistorialClinico</title>
+<script type="text/javascript"
+	src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.16.0/jquery.validate.js"></script>
+<link
+	href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
+	rel="stylesheet" id="bootstrap-css"></link>
+<script
+	src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+</head>
+<body>
+	<div th:replace="fragments/header :: header"></div>
+	<div class="container">
+		<form th:action="@{/historialclinico/buscar}" method="post"
+			th:object="${historialclinico}">
+
+
+			<div class="form-group">
+				<label for="nombreHistorialClinico">Buscar:</label> <input type="text"
+					class="form-control" th:field="*{nombreHistorialClinico}" id="nombreHistorialClinico"></input>
+			</div>
+			<button type="submit" class="btn btn-primary">Aceptar</button>
+			<a href="/historialclinico/listar" class="btn btn-danger">Cancelar</a>
+
+		</form>
+
+		<table class="table table-bordered table-hover table-striped"
+			id="tab_logic">
+			<thead>
+				<tr>
+					            <th class="text-center">Codigo</th>
+								<th class="text-center">Hora</th>
+								<th class="text-center">Descripcion</th>
+								<th class="text-center">Servicio</th>
+								<th class="text-center">Especialista</th>
+							    <th class="text-center">Fecha</th>
+								<th class="text-center">Cliente</th>
+								
+								
+				</tr>
+			</thead>
+			<tbody>
+			                    <tr th:each="p: ${listaHistorialClinicos}">
+								<td th:text="${p.hora}"></td>
+								<td th:text="${p.descripcion}"></td>
+								<td th:text="${p.servicio.idServicio}"></td>
+								<td th:text="${p.especialista.idEspecialista"></td>
+							    <td th:text="${p.fecha}"></td>
+                                <td th:text="${p.cliente.DNI}"></td>
+				</tr>
+			</tbody>
+		</table>
+
+
+		<div th:if="${mensaje}" class="alert alert-info">
+			<p th:text="${mensaje}"></p>
+		</div>
+	</div>
+	<div th:replace="fragments/footer :: footer"></div>
+
+</body>
+</html>

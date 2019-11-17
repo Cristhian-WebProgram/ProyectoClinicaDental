@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1"></meta>
+<title>HorarioMensual</title>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<link
+	href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
+	rel="stylesheet" id="bootstrap-css"></link>
+
+<script
+	src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+	<div th:replace="fragments/header :: header"></div>
+	<div class="container">
+	<form th:action="@{/horariomensual/registrar}" method="post" th:object="${horariomensual}" action="">
+		<div class="form-group">
+		<label for="idHorarioMensual">Id:</label>
+		<input type="text" th:field="*{idHorarioMensual}"></input>
+		
+		<div class="form-group">		
+			<label for="horainicio">HoraInicio:</label>
+			<input type="text" th:field="*{horainicio}"
+			class="form-control" id="hora1"></input>		
+
+			<div class="alert alert-danger"
+			th:if="${#fields.hasErrors('horainicio')}"
+			th:errors="*{horainicio}"></div>
+			
+			<label for="fechafin">HoraFin:</label>
+			<input type="text" th:field="*{horafin}"
+			class="form-control" id="hora2"></input>		
+
+			<div class="alert alert-danger"
+			th:if="${#fields.hasErrors('horafin')}"
+			th:errors="*{horafin}"></div>
+			
+			<label for="fechafin">NumeroDias:</label>
+			<input type="text" th:field="*{numerodias}"
+			class="form-control" id="numerodias1"></input>		
+
+			<div class="alert alert-danger"
+			th:if="${#fields.hasErrors('numerodias')}"
+			th:errors="*{numerodias}"></div>
+			
+			<label for="especialista" class="col-sm-2 col.form-label">Especialista:</label>
+			<select class="form-control"  th:field="*{especialista.idEspecialista}">
+			<option th:each="especialista ${listaEspecialistas}" th:value="${especialista.idEspecialista}" 
+				th:text="${especialista.descripcion}" 
+				th:selected="(${especialista.idEspecialista}==*{especialista.idEspecialista})"></option>
+			</select>
+
+	</div>
+	</div>
+	<button type="submit" class="btn btn-primary">Aceptar</button>
+	<a href="/tip/listar" class="btn btn-danger">Cancelar</a>
+	</form>
+	</div>
+	<div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>

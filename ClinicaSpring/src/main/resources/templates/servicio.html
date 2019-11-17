@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1"></meta>
+<title>Servicio</title>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<link
+	href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
+	rel="stylesheet" id="bootstrap-css"></link>
+
+<script
+	src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script type="text/javascript" th:src="@{/js/servicio.js}"></script>
+
+</head>
+<body>
+	<div th:replace="fragments/header :: header"></div>
+	<div class="container">
+	<form th:action="@{/servicio/registrar}" method="post" th:object="${servicio}" action="">
+		<div class="form-group">
+		<label for="idServicio">Id:</label>
+		<input type="text" th:field="*{idServicio}"></input>
+		
+		<div class="form-group">		
+		<label for="nombre">Nombre:</label>
+		<input type="text" th:field="*{nombre}"
+		class="form-control" id="nombre1"></input>		
+
+		<div class="alert alert-danger"
+		th:if="${#fields.hasErrors('nombre')}"
+		th:errors="*{nombre}"></div>
+		
+		
+		<label for="descripcion">Descripcion:</label>
+		<input type="text" th:field="*{descripcion}"
+		class="form-control" id="descripcion"></input>		
+
+		<div class="alert alert-danger"
+		th:if="${#fields.hasErrors('descripcion')}"
+		th:errors="*{descripcion}"></div>
+		
+				
+		<label for="costo">Costo:</label>
+		<input type="text" th:field="*{costo}"
+		class="form-control" id="costo"></input>		
+
+		<div class="alert alert-danger"
+		th:if="${#fields.hasErrors('costo')}"
+		th:errors="*{costo}"></div>
+	
+	</div>
+	</div>
+	</div>
+	<button type="submit" class="btn btn-primary">Aceptar</button>
+	<a th:href="@{/servicio/listar}" class="btn btn-danger">Cancelar</a>
+	</form>
+	</div>
+	<div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>

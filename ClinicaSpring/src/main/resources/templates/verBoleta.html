@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8"></meta>
+<title>Listar Reservas</title>
+<script type="text/javascript"
+	src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.16.0/jquery.validate.js"></script>
+<link
+	href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
+	rel="stylesheet" id="bootstrap-css"></link>
+<script
+	src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+</head>
+<body>
+
+	<header th:replace="fragments/header :: header"></header>
+
+	<div class="container py-4">
+
+
+		<div class="card">
+			<div class="card-header text-white bg-primary">Datos Boleta</div>
+			<div class="card-body">
+
+				<ul class="list-group my-2">
+					<li
+						class="list-group-item list-group-item-primary bg-primary text-white">Reserva</li>
+				
+				</ul>
+
+				<ul class="list-group my-2">
+					<li
+						class="list-group-item list-group-item-primary bg-primary text-white">Boleta</li>
+					<li class="list-group-item" th:text="'Numero ' + ${boleta.idboleta}"></li>
+					<li class="list-group-item" th:text="'Fecha ' + ${boleta.fecha}"></li>
+				</ul>
+				<div class="table-responsive">
+					<div class="alert alert-info my-4"
+						th:if="${#lists.isEmpty(boleta.boletaDetalle)}"
+						th:text="La boleta no tiene detalle"></div>
+
+					<a th:href="@{'/reserva/detalle/' + ${boleta.idReserva.idReserva}}"
+						class="btn btn-primary">Regresar</a>
+
+					<table th:if="${not #lists.isEmpty(boleta.boletaDetalle)}"
+						class="table table-striped">
+						<thead class="bg-primary text-white">
+							<tr>
+								<th>Servicio</th>
+								<th>Precio</th>
+								<th>Cantidad</th>
+								<th>Importe</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="line: ${boleta.boletaDetalle}">
+								<td th:text="${line.idServicio.nombreServicio}"></td>
+								<td th:text="${line.idServicio.precioServicio }"></td>
+								<td th:text="${line.cantidad }"></td>
+								<td th:text="${line.calculateAmount()}"></td>
+							</tr>
+						</tbody>
+
+					</table>
+
+					<h5 class="float-right">
+						Total <span th:text="${boleta.total}"
+							class="badge badge-secondary"></span>
+					</h5>
+				</div>
+			</div>
+		</div>
+
+	</div>
+	<footer th:replace="fragments/footer :: footer"></footer>
+</body>
+</html>
+ 

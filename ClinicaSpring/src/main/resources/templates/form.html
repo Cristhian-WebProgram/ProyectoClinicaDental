@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="head">
+<meta charset="UTF-8"></meta>
+<title>Documento venta</title>
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no"></meta>
+
+<meta name="title" content="INCLAN - El placer de vivir bien"></meta>
+<meta name="description"
+	content="INCLAN es un hospedaje que brinda comodidad a precio justo y calidad para el cliente"></meta>
+<meta name="author" content="Programación en web"></meta>
+<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+<link rel="stylesheet" th:href="@{/css/jquery-ui.min.css}" />
+</head>
+<body>
+	<header th:replace="fragments/header :: header"></header>
+
+	<div class="container">
+		<form th:action="@{/boleta/save}" th:object="${boleta}" method="post">
+			<div class="card">
+				<div style ="background: green;" class="card-header text-white">Boleta</div>
+				<div class="card-body">
+					<div class="form-group row">
+						<label for="patient" class="col-sm-2 col-form-label">Reserva</label>
+						<div class="col-sm-6">
+							<input type="text" class="form-control-plaintext" id="patient" />
+						</div>
+					</div>
+
+					<div class="form-group row">
+						<label for="medicinename" class="col-sm-2 col-form-label">Servicio</label>
+						<div class="col-sm-6">
+							<input type="text" name="medicinename" class="form-control"
+								id="medicinename" placeholder="Servicio a buscar" />
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="form-group row">
+				<div class="col-sm-6">
+					<a th:href="@{/reserva/listar}"  style ="background: green;" class="btn btn-primary">Regresar</a>
+				</div>
+			</div>
+
+			<div class="card">
+				<div style ="background: green;" class="card-header text-white ">Detalle</div>
+				<div class="card-body">
+					<div class="table-responsive">
+						<table id="loadMedicaments" class="table table-striped">
+							<thead style ="background: green;" class=" text-white">
+								<tr>
+									<th>Nombre</th>
+									<th>Precio</th>
+									<th>Cantidad</th>
+									<th>Total</th>
+									<th>Eliminar</th>
+								</tr>
+							</thead>
+							<tbody>
+							</tbody>
+						</table>
+					</div>
+
+					<table th:replace="voucher/template-voucherdetail::detailVoucher"></table>
+				</div>
+			</div>
+
+			<div class="form-group row">
+				<div class="col-sm-6">
+					<h5 id="total">
+						Total <span class="badge badge-primary" id="gran_total">0</span>
+					</h5>
+				</div>
+			</div>
+
+			<div class="form-group row">
+				<div class="col-sm-6">
+					<input type="submit" value="Registrar" style ="background: green;" class="btn btn-primary" />
+				</div>
+			</div>
+
+		</form>
+	</div>
+
+	<footer th:replace="fragments/footer :: footer"></footer>
+	<script th:replace="voucher/js/autocomplete-medicines::javascript"></script>
+
+</body>
+</html>

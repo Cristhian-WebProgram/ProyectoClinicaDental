@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1"></meta>
+<title>Promocion</title>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<link
+	href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
+	rel="stylesheet" id="bootstrap-css"></link>
+
+<script
+	src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+	<div th:replace="fragments/header :: header"></div>
+	<div class="container">
+	<form th:action="@{/promocion/registrar}" method="post" th:object="${promocion}" action="">
+		<div class="form-group">
+		<label for="idPromocion">Id:</label>
+		<input type="text" th:field="*{idPromocion}"></input>
+		
+		<div class="form-group">		
+			<label for="fechainicio">FechaInicio:</label>
+			<input type="text" th:field="*{fechainicio}"
+			class="form-control" id="fecha1"></input>		
+
+			<div class="alert alert-danger"
+			th:if="${#fields.hasErrors('fechainicio')}"
+			th:errors="*{fechainicio}"></div>
+			
+			<label for="fechafin">FechaFin:</label>
+			<input type="text" th:field="*{fechafin}"
+			class="form-control" id="fecha2"></input>		
+
+			<div class="alert alert-danger"
+			th:if="${#fields.hasErrors('fechafin')}"
+			th:errors="*{fechafin}"></div>
+			
+
+			
+			<label for="descuento">Descuento:</label>
+			<input type="text" th:field="*{descuento}"
+			class="form-control" id="descuento1"></input>		
+
+			<div class="alert alert-danger"
+			th:if="${#fields.hasErrors('descuento')}"
+			th:errors="*{descuento}"></div>
+
+
+	</div>
+	</div>
+	<button type="submit" class="btn btn-primary">Aceptar</button>
+	<a href="/tip/listar" class="btn btn-danger">Cancelar</a>
+	</form>
+	</div>
+	<div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>

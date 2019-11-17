@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+ <html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8"></meta>
+<title>Listar Reserva</title>
+<script type="text/javascript"
+	src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.16.0/jquery.validate.js"></script>
+<link
+	href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
+	rel="stylesheet" id="bootstrap-css"></link>
+<script
+	src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+</head>
+<body>
+	<header th:replace="fragments/header :: header"></header>
+
+	<div class="container">
+		<div class="card">
+			<div class="card-header text-white bg-primary">Datos Reserva</div>
+			<div class="card-body">
+				<ul class="list-group">
+					<li class="list-group-item active" th:text="${reserva.idReserva}"></li>
+					<li class="list-group-item active" th:text="${reserva.nombreReserva}"></li>
+				</ul>
+				<a th:href="@{/reserva/listar}" class="btn btn-primary">Regresar</a>
+			</div>
+		</div>
+		<div class="card">
+			<div class="card-header text-white bg-primary">Boletas</div>
+			<div class="card-body">
+			
+				<div class="table-responsive">	
+					<div th:if="${#lists.isEmpty(reserva.boletas)}"
+						class="alert alert-info my-4"
+						th:text="'La reserva ' + ${reserva.idReserva} + ' no tiene boletas'"></div>
+
+					<table th:if="${not #lists.isEmpty(reserva.boletas)}"
+						class="table table-striped">
+						<thead class="bg-primary text-white">
+							<tr>
+								<th>Numero</th>
+								<th>Fecha</th>
+								<th>Total</th>
+								<th>Ver</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="boleta :${reserva.boletas}">
+								<td th:text="${boleta.id}"></td>
+								<td th:text="${boleta.fechaboleta}"></td>
+								<td th:text="${boleta.total}"></td>
+								<td><a class="btn btn-primary"
+									th:href="@{'/boleta/detalle/'+ ${boleta.id}}">Detalle</a></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<footer th:replace="fragments/footer :: footer"></footer>
+</body>
+</html>
+ 

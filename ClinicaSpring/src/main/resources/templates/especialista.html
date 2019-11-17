@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1"></meta>
+<title>Especialista</title>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<link
+	href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
+	rel="stylesheet" id="bootstrap-css"></link>
+
+<script
+	src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+	<div th:replace="fragments/header :: header"></div>
+	<div class="container">
+	<form th:action="@{/especialista/registrar}" method="post" th:object="${especialista}" action="">
+		<div class="form-group">
+		
+		<label for="idEspecialista">Id:</label>
+		<input type="text" th:field="*{idEspecialista}"></input>
+		
+		<div class="form-group">
+			<label for="nombreEspecialista">Nombre:</label>
+			<input type="text" th:field="*{nombreEspecialista}"
+			class="form-control" id="nombre"></input>		
+
+			<div class="alert alert-danger"
+			th:if="${#fields.hasErrors('nombreEspecialista')}"
+			th:errors="*{nombreEspecialista}"></div>
+			
+			<label for="apellidoEspecialista">Apellido:</label>
+			<input type="text" th:field="*{apellidoEspecialista}"
+			class="form-control" id="apellido"></input>		
+
+			<div class="alert alert-danger"
+			th:if="${#fields.hasErrors('apellidoEspecialista')}"
+			th:errors="*{apellidoEspecialista}"></div>
+			
+			<label for="telefono">Telefono:</label>
+			<input type="text" th:field="*{telefono}"
+			class="form-control" id="telefono1"></input>		
+
+			<div class="alert alert-danger"
+			th:if="${#fields.hasErrors('telefono')}"
+			th:errors="*{telefono"></div>
+			
+			
+			<label for="direccionEspecialista">Direccion:</label>
+			<input type="text" th:field="*{direccionEspecialista}"
+			class="form-control" id="direccion"></input>		
+
+			<div class="alert alert-danger"
+			th:if="${#fields.hasErrors('direccionEspecialista')}"
+			th:errors="*{direccionEspecialista}"></div>
+			
+			<label for="nombreEspecialidad">NombreEspecialidad:</label>
+			<input type="text" th:field="*{nombreEspecialidad}"
+			class="form-control" id="nombreespecialidad"></input>		
+
+			<div class="alert alert-danger"
+			th:if="${#fields.hasErrors('nombreEspecialidad')}"
+			th:errors="*{nombreEspecialidad}"></div>
+			
+
+
+	</div>
+	</div>
+	<button type="submit" class="btn btn-primary">Aceptar</button>
+	<a href="/tip/listar" class="btn btn-danger">Cancelar</a>
+	</form>
+	</div>
+	<div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>

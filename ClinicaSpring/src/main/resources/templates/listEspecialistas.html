@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8"></meta>
+<title>Especialistas</title>
+<script type="text/javascript"
+	src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.16.0/jquery.validate.js"></script>
+<link
+	href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
+	rel="stylesheet" id="bootstrap-css"></link>
+<script
+	src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+</head>
+<body>
+	<div th:replace="fragments/header :: header"></div>
+
+	<div class="container">
+		<form id="myform">
+			<div class="row clearfix">
+				<div class="col-md-12 column">
+					<a style="border-bottom-color: green" th:href="@{/especialista/irRegistrar}"
+						id="add-row" type="button"
+						class="btn btn-primary btn-md left-block"> <span
+						class="glyphicon glyphicon-plus"></span> Especialista
+					</a>
+					<a style="border-bottom-color: green" th:href="@{/especialista/irBuscar}"
+						id="add-row" type="button"
+						class="btn btn-primary btn-md left-block"> <span
+						class="glyphicon glyphicon-search"></span> 
+					</a>
+					
+					<table class="table table-bordered table-hover table-striped"
+						id="tab_logic">
+						<thead>
+							<tr>
+								<th class="text-center">Codigo</th>
+								<th class="text-center">Nombre</th>
+								<th class="text-center">Apellido</th>
+								<th class="text-center">Telefono</th>
+								<th class="text-center">Direccion</th>
+								<th class="text-center">NombreEspecialidad</th>
+								<th class="text-center">Operacion</th>
+								<th class="text-center">Operacion</th>
+
+								
+
+							</tr>
+						</thead>
+						<tbody>
+						<tr th:each="p: ${listaEspecialistas}">
+								<td th:text="${p.nombreEspecialista}"></td>
+								<td th:text="${p.apellidoEspecialista}"></td>
+								<td th:text="${p.telefonoEspecialista}"></td>
+								<td th:text="${p.direccionEspecialista}"></td>
+
+                                <td th:text="${p.nombreEspecialidad}"></td>
+								
+								<td><a th:href="@{/especialista/eliminar?id=}+${p.idEspecialista}">Eliminar</a></td>
+								<td><a th:href="@{'/especialista/modificar/' + ${p.idEspecialista}}">Modificar</a></td>
+							</tr>
+						</tbody>
+
+					</table>
+
+				</div>
+			</div>
+		</form>
+	</div>
+
+	<div th:replace="fragments/footer :: footer"></div>
+
+</body>
+</html>
+ 

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1"></meta>
+<title>HorarioMensual</title>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<link
+	href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
+	rel="stylesheet" id="bootstrap-css"></link>
+
+<script
+	src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+	<div th:replace="fragments/header :: header"></div>
+	<div class="container">
+	<form th:action="@{/historialclinico/registrar}" method="post" th:object="${historialclinico}" action="">
+		<div class="form-group">
+		<label for="idHistorialClinico">Id:</label>
+		<input type="text" th:field="*{idHistorialClinico}"></input>
+		
+		<div class="form-group">		
+			<label for="hora">Hora:</label>
+			<input type="text" th:field="*{hora}"
+			class="form-control" id="hora1"></input>		
+
+			<div class="alert alert-danger"
+			th:if="${#fields.hasErrors('hora')}"
+			th:errors="*{hora}"></div>
+			
+			<label for="fecha">Fecha:</label>
+			<input type="text" th:field="*{fecha}"
+			class="form-control" id="fecha1"></input>		
+
+			<div class="alert alert-danger"
+			th:if="${#fields.hasErrors('fecha')}"
+			th:errors="*{fecha}"></div>
+			
+				<label for="descripcion">Descripcion:</label>
+			<input type="text" th:field="*{descripcion}"
+			class="form-control" id="descripcion1"></input>		
+
+			<div class="alert alert-danger"
+			th:if="${#fields.hasErrors('descripcion')}"
+			th:errors="*{descripcion}"></div>
+			
+			
+			
+			
+			<label for="servicio" class="col-sm-2 col.form-label">Servicio:</label>
+			<select class="form-control"  th:field="*{servicio.idServicio}">
+			<option th:each="servicio ${listaServicios}" th:value="${servicio.idServicio}" 
+				th:text="${servicio.idServicio}" 
+				th:selected="(${especialista.idEspecialista}==*{servicio.idServicio})"></option>
+			</select>
+
+
+<label for="especialista" class="col-sm-2 col.form-label">Especialista:</label>
+			<select class="form-control"  th:field="*{especialista.idEspecialista}">
+			<option th:each="especialista ${listaEspecialistas}" th:value="${especialista.idEspecialista}" 
+				th:text="${especialista.idEspecialista}" 
+				th:selected="(${especialista.idEspecialista}==*{especialista.idEspecialista})"></option>
+			</select>
+
+<label for="cliente" class="col-sm-2 col.form-label">Cliente:</label>
+			<select class="form-control"  th:field="*{cliente.DNI}">
+			<option th:each="cliente ${listaClientes}" th:value="${cliente.DNI}" 
+				th:text="${cliente.DNI}" 
+				th:selected="(${cliente.DNI}==*{cliente.DNI})"></option>
+			</select>
+
+ 
+
+
+	</div>
+	</div>
+	<button type="submit" class="btn btn-primary">Aceptar</button>
+	<a href="/tip/listar" class="btn btn-danger">Cancelar</a>
+	</form>
+	</div>
+	<div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>
