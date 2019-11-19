@@ -61,10 +61,16 @@ public class HistorialClinicoServiceImpl implements IHistorialClinicoService {
 		// TODO Auto-generated method stub
 		return hHistorialClinico.findAll();
 	}
-	
+
 	@Override
 	public List<HistorialClinico> findByHistorialClinico(String nombreHistorialClinico) {
-		return hHistorialClinico.findByNameHistorialClinico(nombreHistorialClinico);
+		// TODO Auto-generated method stub
+		return null;
 	}
+	
+	/*@Override
+	public List<HistorialClinico> findByHistorialClinico(String nombreHistorialClinico) {
+		return hHistorialClinico.findByNameHistorialClinico(nombreHistorialClinico);
+	}*/
 
 }

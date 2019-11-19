@@ -10,10 +10,10 @@ import pe.edu.upc.spring.repository.IBoletaDAO;
 import pe.edu.upc.spring.entity.Boleta;
 import pe.edu.upc.spring.service.IBoletaService;
 
-@Service
+/*@Service*/
 public class BoletaServiceImpl implements IBoletaService {
 
-
+/*
 	@Autowired
 	private IBoletaDAO boletaDao;
 
@@ -41,6 +41,6 @@ public class BoletaServiceImpl implements IBoletaService {
     public Boleta buscarPorId(int idBoleta) {
 	return boletaDao.findOne(idBoleta);
 }
-
+*/
 
 }

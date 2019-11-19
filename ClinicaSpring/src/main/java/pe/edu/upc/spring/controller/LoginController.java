@@ -18,7 +18,7 @@ public class LoginController {
 		
 		if (principal != null) {
 			flash.addFlashAttribute("info", "Ya ha inciado sesión anteriormente");
-			return "redirect:/pet/listar";
+			return "redirect:/cliente/listar";
 		}
 
 		if (error != null) {

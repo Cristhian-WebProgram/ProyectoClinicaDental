@@ -8,9 +8,10 @@ import org.springframework.stereotype.Repository;
 
 import pe.edu.upc.spring.entity.Boleta;
 
-@Repository
+/*@Repository*/
 public interface IBoletaDAO extends JpaRepository <Boleta,Integer> {
-
+/*
 	@Query("select v from Boleta v  p join fetch v.boletaDetalle bd join fetch bd.idServicio where v.id=?1")
 	Optional<Boleta> fetchByVoucherIdWithPatientWhithVoucherDetailWithMedicine(int id);	
+	*/
 }

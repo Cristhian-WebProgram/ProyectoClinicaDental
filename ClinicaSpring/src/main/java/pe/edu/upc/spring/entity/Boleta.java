@@ -21,16 +21,11 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 
-
-
-
-
-
-@Entity
-@Table(name = "boleta")
+/*@Entity
+@Table(name = "boleta")*/
 public class Boleta  {
 
-	
+	/*
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idboleta;
@@ -137,5 +132,5 @@ public class Boleta  {
 		return boletaDetalle.stream().collect(Collectors.summingDouble(DetalleBoleta::calculateAmount));
 	}
 	
-	
+	*/
 }

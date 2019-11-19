@@ -22,11 +22,11 @@ import pe.edu.upc.spring.service.IBoletaService;
 import pe.edu.upc.spring.service.IServicioService;
 import pe.edu.upc.spring.service.IReservaService;
 
-@Controller
+/*@Controller
 @RequestMapping("/boleta")
-@SessionAttributes("boleta")
+@SessionAttributes("boleta")*/
 public class BoletaController {
-
+/*
 	@Autowired
 	private IBoletaService boletaService;
 	@Autowired
@@ -106,7 +106,7 @@ public class BoletaController {
 
 		return "verBoleta";
 	}
-	
+	*/
 }
 
 

@@ -18,11 +18,11 @@ import javax.persistence.Table;
 
 
 
-@Entity
-@Table(name = "detalleboleta")
+/*@Entity
+@Table(name = "detalleboleta")*/
 public class DetalleBoleta {
 	
-	@Id
+	/*@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int iddetalleboleta;
 	
@@ -88,5 +88,5 @@ public Double calculateAmount() {
 		
 		return cantidadservicios*idServicio.getCosto();
   
-}
+}*/
 }

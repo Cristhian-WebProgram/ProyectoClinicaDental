@@ -57,9 +57,15 @@ public class ProgramacionMensualServiceImpl implements IProgramacionMensualServi
 	public List<ProgramacionMensual> listar() {
 		return cProgramacionMensual.findAll();
 	}
-	
+
 	@Override
 	public List<ProgramacionMensual> findByProgramacionMensual(String nombreProgramacionMensual) {
-		return cProgramacionMensual.findByNameProgramacionMensual(nombreProgramacionMensual);
+		// TODO Auto-generated method stub
+		return null;
 	}
+	
+	/*@Override
+	public List<ProgramacionMensual> findByProgramacionMensual(String nombreProgramacionMensual) {
+		return cProgramacionMensual.findByNameProgramacionMensual(nombreProgramacionMensual);
+	}*/
 }

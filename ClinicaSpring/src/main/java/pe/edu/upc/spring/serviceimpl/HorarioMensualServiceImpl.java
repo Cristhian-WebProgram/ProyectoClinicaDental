@@ -58,10 +58,16 @@ public class HorarioMensualServiceImpl implements IHorarioMensualService {
 	public List<HorarioMensual> listar() {
 		return cHorarioMensual.findAll();
 	}
-	
+
 	@Override
 	public List<HorarioMensual> findByHorarioMensual(String nombreHorarioMensual) {
-		return cHorarioMensual.findByNameHorarioMensual(nombreHorarioMensual);
+		// TODO Auto-generated method stub
+		return null;
 	}
+	
+	/*@Override
+	public List<HorarioMensual> findByHorarioMensual(String nombreHorarioMensual) {
+		return cHorarioMensual.findByNameHorarioMensual(nombreHorarioMensual);
+	}*/
 
 }
