@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import pe.edu.upc.spring.entity.Consultorio;
+
 import pe.edu.upc.spring.repository.IConsultorioDAO;
 import pe.edu.upc.spring.service.IConsultorioService;
 
@@ -64,14 +65,8 @@ public class ConsultorioServiceImpl implements IConsultorioService {
 	}
 
 	@Override
-	public List<Consultorio> findByConsultorio(String nombreConsultorio) {
-		// TODO Auto-generated method stub
-		return null;
+	public Consultorio buscarId(int idConsultorio) {
+		return hConsultorio.findOne(idConsultorio);
 	}
-
-	/*@Override
-	public List<Consultorio> findByConsultorio(String nombreConsultorio) {
-		return hConsultorio.findByNameConsultorio(nombreConsultorio);
-	}*/
 	
 }

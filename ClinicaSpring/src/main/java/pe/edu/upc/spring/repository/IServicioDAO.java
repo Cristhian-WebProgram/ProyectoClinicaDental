@@ -13,6 +13,6 @@ import pe.edu.upc.spring.entity.Servicio;
 public interface IServicioDAO extends JpaRepository<Servicio,Integer>{
 	
 	@Query("from Servicio p where p.nombre like %:nombre% ")
-	List<Servicio> findByNameServicio(String nombre);
+	public List<Servicio> findByNameServicio(String nombre);
 
 }

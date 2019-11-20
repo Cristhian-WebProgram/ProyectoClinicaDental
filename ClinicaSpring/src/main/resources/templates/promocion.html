@@ -23,7 +23,7 @@
 		<div class="form-group">		
 			<label for="fechainicio">FechaInicio:</label>
 			<input type="text" th:field="*{fechainicio}"
-			class="form-control" id="fecha1"></input>		
+			class="form-control" id="fechainicio1"></input>		
 
 			<div class="alert alert-danger"
 			th:if="${#fields.hasErrors('fechainicio')}"
@@ -31,7 +31,7 @@
 			
 			<label for="fechafin">FechaFin:</label>
 			<input type="text" th:field="*{fechafin}"
-			class="form-control" id="fecha2"></input>		
+			class="form-control" id="fechafin1"></input>		
 
 			<div class="alert alert-danger"
 			th:if="${#fields.hasErrors('fechafin')}"
@@ -51,7 +51,7 @@
 	</div>
 	</div>
 	<button type="submit" class="btn btn-primary">Aceptar</button>
-	<a href="/tip/listar" class="btn btn-danger">Cancelar</a>
+	<a href="/promocion/listar" class="btn btn-danger">Cancelar</a>
 	</form>
 	</div>
 	<div th:replace="fragments/footer :: footer"></div>

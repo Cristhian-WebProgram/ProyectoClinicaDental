@@ -1,5 +1,6 @@
 package pe.edu.upc.spring.controller;
 
+import java.util.List;
 import java.util.Map;
 
 import javax.validation.Valid;
@@ -7,16 +8,19 @@ import java.text.ParseException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 
 
 import pe.edu.upc.spring.service.IServicioService;
+import pe.edu.upc.spring.entity.Cliente;
 import pe.edu.upc.spring.entity.Servicio;
 
 @Controller
@@ -110,5 +114,45 @@ public class ServicioController {
 		cService.listarId(servicio.getIdservicio());
 		return "listServicios";
 	}
+	
+	@RequestMapping("/buscar")
+	public String buscar(Map<String, Object> model, @ModelAttribute Servicio servicio) throws ParseException {
+
+		List<Servicio> listaServicios;
+		
+		listaServicios = cService.findByNameServicio((servicio.getNombre()));
+
+
+		if (listaServicios.isEmpty())
+		{
+
+			model.put("mensaje", "No se encontro");
+		}
+
+		model.put("listaServicios", listaServicios);
+		return "buscarServicio";
+
+	}
+
+	@RequestMapping("/irBuscar")
+	public String irBuscar(Model model) {
+		model.addAttribute("servicio", new Cliente());
+		return "findByNameServicio";
+	}
+	
+	@GetMapping(value = "/list/{name}", produces = { "application/json" })
+	public @ResponseBody List<Servicio> Servicio(@PathVariable String name, Model model) {
+		List<Servicio> servicios = null;
+		try {
+			servicios = cService.findByNameServicio(name);
+		} catch (Exception e) {
+			model.addAttribute("error", e.getMessage());
+		}
+		return servicios;
+	}		
+	
+	
+	
+	
 	
 }

@@ -48,6 +48,7 @@
 						</thead>
 						<tbody>
 						<tr th:each="p: ${listaPromociones}">
+						<td th:text="${p.idPromocion}"></td>
 								<td th:text="${p.fechainicio}"></td>
 								<td th:text="${p.fechafin}"></td>
 								<td th:text="${p.descuento}"></td>

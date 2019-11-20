@@ -49,10 +49,11 @@
 						</thead>
 						<tbody>
 							<tr th:each="p: ${listaHistorialClinicos}">
+							<td th:text="${p.idHistorialClinico}"></td>
 								<td th:text="${p.hora}"></td>
 								<td th:text="${p.descripcion}"></td>
 								<td th:text="${p.servicio.idServicio}"></td>
-								<td th:text="${p.especialista.idEspecialista"></td>
+								<td th:text="${p.especialista.idEspecialista}"></td>
 							    <td th:text="${p.fecha}"></td>
                                 <td th:text="${p.cliente.DNI}"></td>
 								

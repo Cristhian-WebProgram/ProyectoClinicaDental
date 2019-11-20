@@ -27,6 +27,12 @@ public class PromocionController {
 	@Autowired
 	private IPromocionService cService; 
 	
+	@RequestMapping("/")
+	public String irPromocion(Map<String, Object>model) {
+		model.put("listaPromociones", cService.listar());
+		return "listPromociones";
+	}
+	
 	
 	@RequestMapping("/irRegistrar")
 	public String irRegistrar(Model model) {

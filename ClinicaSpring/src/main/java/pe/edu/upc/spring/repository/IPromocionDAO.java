@@ -11,7 +11,7 @@ import pe.edu.upc.spring.entity.Promocion;
 @Repository
 public interface IPromocionDAO extends JpaRepository<Promocion,Integer>{
 	
-	@Query("from Promocion r where e.nombrePromocion like %:nombrePromocion% ")
-	List<Promocion> findByNamePromocion(String nombrePromocion);
+	@Query("from Promocion p where p.idPromocion like %:idPromocion% ")
+	public List<Promocion> findByPromocion(int idPromocion);
 
 }

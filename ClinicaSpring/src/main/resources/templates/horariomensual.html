@@ -19,20 +19,28 @@
 		<div class="form-group">
 		<label for="idHorarioMensual">Id:</label>
 		<input type="text" th:field="*{idHorarioMensual}"></input>
-		
+		<div style="margin:10px;">
+			
+			</div>
 		<div class="form-group">		
 			<label for="horainicio">HoraInicio:</label>
 			<input type="text" th:field="*{horainicio}"
-			class="form-control" id="hora1"></input>		
-
+			class="form-control" id="horainicio1"></input>		
+<div style="margin:10px;">
+			
+			</div>
 			<div class="alert alert-danger"
 			th:if="${#fields.hasErrors('horainicio')}"
 			th:errors="*{horainicio}"></div>
+			<div style="margin:10px;">
 			
+			</div>
 			<label for="fechafin">HoraFin:</label>
 			<input type="text" th:field="*{horafin}"
-			class="form-control" id="hora2"></input>		
-
+			class="form-control" id="horafin1"></input>		
+<div style="margin:10px;">
+			
+			</div>
 			<div class="alert alert-danger"
 			th:if="${#fields.hasErrors('horafin')}"
 			th:errors="*{horafin}"></div>
@@ -40,7 +48,9 @@
 			<label for="fechafin">NumeroDias:</label>
 			<input type="text" th:field="*{numerodias}"
 			class="form-control" id="numerodias1"></input>		
-
+<div style="margin:10px;">
+			
+			</div>
 			<div class="alert alert-danger"
 			th:if="${#fields.hasErrors('numerodias')}"
 			th:errors="*{numerodias}"></div>
@@ -54,8 +64,8 @@
 
 	</div>
 	</div>
-	<button type="submit" class="btn btn-primary">Aceptar</button>
-	<a href="/tip/listar" class="btn btn-danger">Cancelar</a>
+	<button type="submit" class="btn btn-primary" style="background:red;padding:15px;">Aceptar</button>
+	<a href="/horariomensual/listar" class="btn btn-danger" style="background:red;padding:15px;">Cancelar</a>
 	</form>
 	</div>
 	<div th:replace="fragments/footer :: footer"></div>

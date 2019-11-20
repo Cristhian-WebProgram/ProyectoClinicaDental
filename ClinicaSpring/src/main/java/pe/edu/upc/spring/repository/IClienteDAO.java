@@ -12,5 +12,5 @@ import pe.edu.upc.spring.entity.Cliente;
 public interface IClienteDAO extends JpaRepository<Cliente, Integer>{
 	
 	@Query("from Cliente p where p.nombreCliente like %:nombreCliente% ")
-	List<Cliente> findByNameCliente(String nombreCliente);
+	public List<Cliente> findByNameCliente(String nombreCliente);
 }

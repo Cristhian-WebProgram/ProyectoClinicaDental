@@ -69,7 +69,7 @@ public class ReservaServiceImpl implements IReservaService{
 	
 	
 	@Override
-	public List<Reserva> findByReserva(String nombreReserva) {
+	public List<Reserva> findByNameReserva(String nombreReserva) {
 		return rReserva.findByNameReserva(nombreReserva);
 	}
 

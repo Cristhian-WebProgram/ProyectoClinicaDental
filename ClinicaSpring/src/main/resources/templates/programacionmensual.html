@@ -23,14 +23,14 @@
 		<div class="form-group">
 <label for="consultorio" class="col-sm-2 col.form-label">Consultorio:</label>
 			<select class="form-control"  th:field="*{consultorio.idConsultorio}">
-			<option th:each="consultorio ${listaConsultorio}" th:value="${consultorio.idConsultorio}" 
+			<option th:each="consultorio ${listaConsultorios}" th:value="${consultorio.idConsultorio}" 
 				th:text="${consultorio.descripcion}" 
 				th:selected="(${consultorio.idConsultorio}==*{consultorio.idConsultorio})"></option>
 			</select>
 		
 		<label for="horariomensual" class="col-sm-2 col.form-label">HorarioMensual:</label>
 			<select class="form-control"  th:field="*{horariomensual.idHorarioMensual}">
-			<option th:each="horariomensual ${listaHorarioMensual}" th:value="${horariomensual.idHorarioMensual}" 
+			<option th:each="horariomensual ${listaHorarioMensuales}" th:value="${horariomensual.idHorarioMensual}" 
 				th:text="${horariomensual.descripcion}" 
 				th:selected="(${horariomensual.idHorarioMensual}==*{horariomensual.idHorarioMensual})"></option>
 			</select>
@@ -57,7 +57,7 @@
 	</div>
 	</div>
 	<button type="submit" class="btn btn-primary">Aceptar</button>
-	<a href="/tip/listar" class="btn btn-danger">Cancelar</a>
+	<a href="/programacionmensual/listar" class="btn btn-danger">Cancelar</a>
 	</form>
 	</div>
 	<div th:replace="fragments/footer :: footer"></div>

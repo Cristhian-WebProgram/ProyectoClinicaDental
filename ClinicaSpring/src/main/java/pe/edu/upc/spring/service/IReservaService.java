@@ -19,6 +19,6 @@ public boolean insertar(Reserva Reserva);
 	
 	public List<Reserva> listar();
 	
-	List<Reserva> findByReserva(String nombreReserva);
+	List<Reserva> findByNameReserva(String nombreReserva);
 	
 }

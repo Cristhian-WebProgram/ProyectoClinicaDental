@@ -1,6 +1,7 @@
 package pe.edu.upc.spring.entity;
 
 
+
 import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -19,19 +20,31 @@ import javax.persistence.PrePersist;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 
-/*@Entity
-@Table(name = "boleta")*/
-public class Boleta  {
 
-	/*
+
+
+
+
+@Entity
+@Table(name = "Boleta")
+public class Boleta {
+
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idboleta;
 	
-	@Column(name = "fecha")
+	@NotNull
+	@Past(message="No puedes seleccionar un dia que todavia NO existe")
 	@Temporal(TemporalType.DATE)
+	@Column(name="fechaComprobante",length=60,nullable=false)
+	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date fecha;
 	
 	
@@ -75,6 +88,8 @@ public class Boleta  {
 	}
 
 	
+	
+
 	public int getIdboleta() {
 		return idboleta;
 	}
@@ -132,5 +147,5 @@ public class Boleta  {
 		return boletaDetalle.stream().collect(Collectors.summingDouble(DetalleBoleta::calculateAmount));
 	}
 	
-	*/
+	
 }

@@ -67,7 +67,7 @@ public class EspecialistaServiceImpl implements IEspecialistaService {
 
 	@Override
 	public List<Especialista> findByEspecialista(String nombreEspecialista) {
-		return hEspecialista.findByNameEspecialista(nombreEspecialista);
+		return hEspecialista.findByEspecialista(nombreEspecialista);
 	}
 	
 	

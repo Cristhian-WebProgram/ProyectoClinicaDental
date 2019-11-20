@@ -1,6 +1,7 @@
 package pe.edu.upc.spring.controller;
 
 
+import java.util.List;
 import java.util.Map;
 
 import javax.validation.Valid;
@@ -8,10 +9,12 @@ import java.text.ParseException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -111,6 +114,40 @@ public class ClienteController {
 		cService.listarId(cliente.getDNI());
 		return "listClientes";
 	}
+	@RequestMapping("/buscar")
+	public String buscar(Map<String, Object> model, @ModelAttribute Cliente cliente) throws ParseException {
+
+		List<Cliente> listaClientes;
+		
+		listaClientes = cService.findByNameCliente((cliente.getNombreCliente()));
+
+
+		if (listaClientes.isEmpty())
+		{
+
+			model.put("mensaje", "No se encontro");
+		}
+
+		model.put("listaClientes", listaClientes);
+		return "buscarCliente";
+
+	}
+
+	@RequestMapping("/irBuscar")
+	public String irBuscar(Model model) {
+		model.addAttribute("cliente", new Cliente());
+		return "buscarCliente";
+	}
 	
+	@GetMapping(value = "/list/{name}", produces = { "application/json" })
+	public @ResponseBody List<Cliente> findByNameCliente(@PathVariable String name, Model model) {
+		List<Cliente> clientes = null;
+		try {
+			clientes = cService.findByNameCliente(name);
+		} catch (Exception e) {
+			model.addAttribute("error", e.getMessage());
+		}
+		return clientes;
+	}		
 	
 }

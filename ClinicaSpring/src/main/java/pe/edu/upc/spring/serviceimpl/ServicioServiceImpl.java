@@ -59,7 +59,7 @@ public class ServicioServiceImpl implements IServicioService{
 	}
 
 	@Override
-	public List<Servicio> findByServicio(String nombreServicio) {
+	public List<Servicio> findByNameServicio(String nombreServicio) {
 		return rServicio.findByNameServicio(nombreServicio);
 	}
 	

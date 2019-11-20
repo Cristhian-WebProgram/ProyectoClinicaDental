@@ -18,7 +18,7 @@ public boolean insertar(HistorialClinico HistorialClinico);
 	public List<HistorialClinico> listar();
 	
 	
-	List<HistorialClinico> findByHistorialClinico(String nombreHistorialClinico);
+	public HistorialClinico buscarId(int idHistorialClinico);
 
 	
 }

@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8"></meta>
-<title>Buscar Servicio</title>
+<title>Buscar Especialista</title>
 <script type="text/javascript"
 	src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.16.0/jquery.validate.js"></script>
 <link
@@ -15,13 +15,13 @@
 <body>
 	<div th:replace="fragments/header :: header"></div>
 	<div class="container">
-		<form th:action="@{/servicio/buscar}" method="post"
-			th:object="${servicio}">
+		<form th:action="@{/especialista/buscar}" method="post"
+			th:object="${especialista}">
 
 
 			<div class="form-group">
 				<label for="nombreEspecialista">Buscar:</label> <input type="text"
-					class="form-control" th:field="*{nombreEspecialisra}" id="nombreEspecialista"></input>
+					class="form-control" th:field="*{nombreEspecialista}" id="nombreEspecialista"></input>
 			</div>
 			<button type="submit" class="btn btn-primary">Aceptar</button>
 			<a href="/especialista/listar" class="btn btn-danger">Cancelar</a>
@@ -43,7 +43,7 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr th:each="p: ${listaEspecialistas}">
+				<tr th:each="p: ${listaespecialistas}">
 								<td th:text="${p.nombreEspecialista}"></td>
 								<td th:text="${p.apellidoEspecialista}"></td>
 								<td th:text="${p.telefonoEspecialista}"></td>

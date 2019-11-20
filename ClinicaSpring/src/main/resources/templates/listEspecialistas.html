@@ -49,6 +49,7 @@
 						</thead>
 						<tbody>
 						<tr th:each="p: ${listaEspecialistas}">
+						<td th:text="${p.idEspecialista}"></td>
 								<td th:text="${p.nombreEspecialista}"></td>
 								<td th:text="${p.apellidoEspecialista}"></td>
 								<td th:text="${p.telefonoEspecialista}"></td>

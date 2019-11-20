@@ -1,10 +1,12 @@
 package pe.edu.upc.spring.controller;
 
+import java.util.List;
 import java.util.Map;
 
 import javax.validation.Valid;
 import java.text.ParseException;
-
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -17,6 +19,7 @@ import org.springframework.validation.BindingResult;
 
 
 import pe.edu.upc.spring.service.IReservaService;
+import pe.edu.upc.spring.entity.Cliente;
 import pe.edu.upc.spring.entity.Reserva;
 
 @Controller
@@ -110,5 +113,41 @@ public class ReservaController {
 		cService.listarId(reserva.getIdReserva());
 		return "listReservas";
 	}
+	
+	@RequestMapping("/buscar")
+	public String buscar(Map<String, Object> model, @ModelAttribute Reserva reserva) throws ParseException {
+
+		List<Reserva> listaReservas;
+		
+		listaReservas = cService.findByNameReserva((reserva.getNombreReserva()));
+
+
+		if (listaReservas.isEmpty())
+		{
+
+			model.put("mensaje", "No se encontro");
+		}
+
+		model.put("listaReservas", listaReservas);
+		return "buscarReserva";
+
+	}
+
+	@RequestMapping("/irBuscar")
+	public String irBuscar(Model model) {
+		model.addAttribute("reserva", new Cliente());
+		return "buscarReserva";
+	}
+	
+	@GetMapping(value = "/list/{name}", produces = { "application/json" })
+	public @ResponseBody List<Reserva> findByNameReserva(@PathVariable String name, Model model) {
+		List<Reserva> reservas = null;
+		try {
+			reservas = cService.findByNameReserva(name);
+		} catch (Exception e) {
+			model.addAttribute("error", e.getMessage());
+		}
+		return reservas;
+	}		
 	
 }

@@ -20,8 +20,8 @@
 
 
 			<div class="form-group">
-				<label for="nombreServicio">Buscar:</label> <input type="text"
-					class="form-control" th:field="*{nombreServicio}" id="nombreServicio"></input>
+				<label for="nombre">Buscar:</label> <input type="text"
+					class="form-control" th:field="*{nombre}" id="nombre"></input>
 			</div>
 			<button type="submit" class="btn btn-primary">Aceptar</button>
 			<a href="/servicio/listar" class="btn btn-danger">Cancelar</a>
@@ -42,7 +42,7 @@
 				</tr>
 			</thead>
 			<tbody>
-				                <tr th:each="p: ${listaServicios}">
+				                <tr th:each="p: ${listaservicios}">
 								<td th:text="${p.idServicio}"></td>
 								<td th:text="${p.nombre}"></td>
                                  <td th:text="${p.descripcion}"></td>

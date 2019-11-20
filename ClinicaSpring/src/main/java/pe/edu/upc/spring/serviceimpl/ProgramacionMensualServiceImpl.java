@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+
 import pe.edu.upc.spring.entity.ProgramacionMensual;
 
 import pe.edu.upc.spring.repository.IProgramacionMensualDAO;
@@ -57,15 +58,10 @@ public class ProgramacionMensualServiceImpl implements IProgramacionMensualServi
 	public List<ProgramacionMensual> listar() {
 		return cProgramacionMensual.findAll();
 	}
-
+	
 	@Override
-	public List<ProgramacionMensual> findByProgramacionMensual(String nombreProgramacionMensual) {
-		// TODO Auto-generated method stub
-		return null;
+	public ProgramacionMensual buscarId(int idProgramacionMensual) {
+		return cProgramacionMensual.findOne(idProgramacionMensual);
 	}
 	
-	/*@Override
-	public List<ProgramacionMensual> findByProgramacionMensual(String nombreProgramacionMensual) {
-		return cProgramacionMensual.findByNameProgramacionMensual(nombreProgramacionMensual);
-	}*/
 }

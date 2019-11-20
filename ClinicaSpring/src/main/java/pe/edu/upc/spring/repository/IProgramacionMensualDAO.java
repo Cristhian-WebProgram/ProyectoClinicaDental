@@ -13,6 +13,6 @@ public interface IProgramacionMensualDAO extends JpaRepository<ProgramacionMensu
 	
 	
 	@Query("from ProgramacionMensual p where p.idProgramacionMensual like %:idProgramacionMensual% ")
-	List<ProgramacionMensual> findByProgramacionMensual(int idProgramacionMensual);
+	public List<ProgramacionMensual> findByProgramacionMensual(int idProgramacionMensual);
 
 }

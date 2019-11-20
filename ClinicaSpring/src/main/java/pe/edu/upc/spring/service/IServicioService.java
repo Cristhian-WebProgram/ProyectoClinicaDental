@@ -19,6 +19,6 @@ public boolean insertar(Servicio Servicio);
 	
 	public List<Servicio> listar();
 	
-	List<Servicio> findByServicio(String nombreServicio);
+	List<Servicio> findByNameServicio(String nombre);
 	
 }

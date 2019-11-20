@@ -2,6 +2,7 @@ package pe.edu.upc.spring.service;
 
 import java.util.List;
 
+
 import pe.edu.upc.spring.entity.HorarioMensual;
 
 public interface IHorarioMensualService {
@@ -18,7 +19,7 @@ public boolean insertar(HorarioMensual HorarioMensual);
 	
 	public List<HorarioMensual> listar();
 	
-	List<HorarioMensual> findByHorarioMensual(String nombreHorarioMensual);
+	public HorarioMensual buscarId(int idHorarioMensual);
 
 
 }

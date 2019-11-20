@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+
 import pe.edu.upc.spring.entity.HorarioMensual;
 
 import pe.edu.upc.spring.repository.IHorarioMensualDAO;
@@ -58,16 +59,10 @@ public class HorarioMensualServiceImpl implements IHorarioMensualService {
 	public List<HorarioMensual> listar() {
 		return cHorarioMensual.findAll();
 	}
-
+	
 	@Override
-	public List<HorarioMensual> findByHorarioMensual(String nombreHorarioMensual) {
-		// TODO Auto-generated method stub
-		return null;
+	public HorarioMensual buscarId(int idHorarioMensual) {
+		return cHorarioMensual.findOne(idHorarioMensual);
 	}
 	
-	/*@Override
-	public List<HorarioMensual> findByHorarioMensual(String nombreHorarioMensual) {
-		return cHorarioMensual.findByNameHorarioMensual(nombreHorarioMensual);
-	}*/
-
 }

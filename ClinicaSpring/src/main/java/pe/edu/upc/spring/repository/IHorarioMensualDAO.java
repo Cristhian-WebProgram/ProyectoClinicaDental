@@ -11,7 +11,7 @@ import pe.edu.upc.spring.entity.HorarioMensual;
 @Repository
 public interface IHorarioMensualDAO extends JpaRepository<HorarioMensual,Integer>{
 	
-	@Query("from HorarioMensual p where p.idPromocion like %:idPromocion% ")
-	public List<HorarioMensual> findByHorarioMensual(int idPromocion);
+	@Query("from HorarioMensual p where p.idHorarioMensual like %:idHorarioMensual% ")
+	public List<HorarioMensual> findByHorarioMensual(int idHorarioMensual);
 
 }

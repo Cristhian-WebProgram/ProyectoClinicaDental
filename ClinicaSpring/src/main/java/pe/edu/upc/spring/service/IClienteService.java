@@ -13,6 +13,6 @@ public interface IClienteService {
 	public void eliminar(int DNI);
 	public List<Cliente> listar();
 	public Cliente listarId(int DNI);
-	List<Cliente> findByCliente(String nombreCliente);
+	public List<Cliente> findByNameCliente(String nombreCliente);
 
 }

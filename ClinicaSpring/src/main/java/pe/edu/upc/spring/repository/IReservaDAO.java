@@ -11,7 +11,7 @@ import pe.edu.upc.spring.entity.Reserva;
 @Repository
 public interface IReservaDAO extends JpaRepository<Reserva,Integer>{
 	
-	@Query("from Reserva r where e.nombreReserva like %:nombreReserva% ")
-	List<Reserva> findByNameReserva(String nombreReserva);
+	@Query("from Reserva p where p.nombreReserva like %:nombreReserva% ")
+	public List<Reserva> findByNameReserva(String nombreReserva);
 
 }

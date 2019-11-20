@@ -18,7 +18,7 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 
 @Entity
-@Table(name = "horario")
+@Table(name = "HorarioMensual")
 public class HorarioMensual implements Serializable  {
 
 	private static final long serialVersionUID = 1L;

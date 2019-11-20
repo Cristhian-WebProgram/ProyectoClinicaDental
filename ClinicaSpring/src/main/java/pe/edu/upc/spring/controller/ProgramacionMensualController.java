@@ -92,23 +92,23 @@ public class ProgramacionMensualController {
 	
 			if(id !=null && id>0) {
 				cService.eliminar(id);
-				model.put("listaProgramacionMensuals", cService.listar());
+				model.put("listaProgramacionMensuales", cService.listar());
 			}
 		 
 	
-		return "listProgramacionMensuals";
+		return "listProgramacionMensuales";
 	}
 	
 	@RequestMapping("/listar")
 	public String listar(Map<String, Object> model) {
-		model.put("listaProgramacionMensuals", cService.listar()); // size());
-		return "listProgramacionMensuals";
+		model.put("listaProgramacionMensuales", cService.listar()); // size());
+		return "listProgramacionMensuales";
 	}
 	
 	@RequestMapping("/listarId")
 	public String listarId(Map<String, Object> model, @ModelAttribute ProgramacionMensual programacionmensual) {
 		cService.listarId(programacionmensual.getIdProgramacionMensual());
-		return "listProgramacionMensuals";
+		return "listProgramacionMensuales";
 	}
 	
 }

@@ -15,7 +15,7 @@
 <body>
 	<div th:replace="fragments/header :: header"></div>
 	<div class="container">
-	<form th:action="@{/cliente/registrar}" method="post" th:object="${cliente}" action="">//
+	<form th:action="@{/cliente/registrar}" method="post" th:object="${cliente}" action="">
 		<div class="form-group">
 		
 		<label for="DNI">DNI:</label>
@@ -42,7 +42,7 @@
 		
 			<label for="domicilioCliente">Domicilio:</label>
 			<input type="text" th:field="*{domicilioCliente}"
-			class="form-control" id="domicilio"></input>		
+			class="form-control" id="domicilioCliente1"></input>		
 
 			<div class="alert alert-danger"
 			th:if="${#fields.hasErrors('domicilioCliente')}"
@@ -60,7 +60,7 @@
 	</div>
 	</div>
 	<button type="submit" class="btn btn-primary">Aceptar</button>
-	<a href="/tip/listar" class="btn btn-danger">Cancelar</a>
+	<a href="/cliente/listar" class="btn btn-danger">Cancelar</a>
 	</form>
 	</div>
 	<div th:replace="fragments/footer :: footer"></div>

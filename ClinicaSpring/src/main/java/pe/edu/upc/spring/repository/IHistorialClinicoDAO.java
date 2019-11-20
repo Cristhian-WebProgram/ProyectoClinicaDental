@@ -12,6 +12,6 @@ import pe.edu.upc.spring.entity.HistorialClinico;
 public interface IHistorialClinicoDAO extends JpaRepository<HistorialClinico,Integer>{
 	
 	@Query("from HistorialClinico p where p.idHistorialClinico like %:idHistorialClinico% ")
-	public List<HistorialClinico> findByHistorialClinico(String idHistorialClinico);
+	public List<HistorialClinico> findByHistorialClinico(int idHistorialClinico);
 
 }

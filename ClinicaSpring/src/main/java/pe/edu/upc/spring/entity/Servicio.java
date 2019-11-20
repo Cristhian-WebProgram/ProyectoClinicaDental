@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.DecimalMin;
 
 import org.hibernate.validator.constraints.NotBlank;
@@ -15,7 +16,7 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 
 @Entity
-@Table(name = "servicio")
+@Table(name = "Servicio",uniqueConstraints = { @UniqueConstraint(columnNames = {  "nombre" }) })
 public class Servicio implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
@@ -46,7 +47,7 @@ public class Servicio implements Serializable {
 	}
 	public Servicio() {
 		super();
-		// TODO Auto-generated constructor stub
+		
 	}
 	public int getIdservicio() {
 		return idservicio;

@@ -58,7 +58,7 @@ public class ClienteServiceImpl implements IClienteService {
 	}
 
 	@Override
-	public List<Cliente> findByCliente(String nombreCliente) {
+	public List<Cliente> findByNameCliente(String nombreCliente) {
 		return cCliente.findByNameCliente(nombreCliente);
 	}
 	

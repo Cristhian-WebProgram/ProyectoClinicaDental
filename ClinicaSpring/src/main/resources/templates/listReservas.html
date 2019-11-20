@@ -48,6 +48,7 @@
 						</thead>
 						<tbody>
 							<tr th:each="p: ${listaReservas}">
+							    <td th:text="${p.idReserva}"></td>
 								<td th:text="${p.cliente.DNI}"></td>
 								<td th:text="${p.nombreReserva}"></td>
 								<td th:text="${p.fechareserva}"></td>

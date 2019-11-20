@@ -13,9 +13,9 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import pe.edu.upc.spring.repository.IUsuarioDAO;
 import pe.edu.upc.spring.entity.Role;
 import pe.edu.upc.spring.entity.Usuario;
-import pe.edu.upc.spring.repository.IUsuarioDAO;
 
 
 @Service

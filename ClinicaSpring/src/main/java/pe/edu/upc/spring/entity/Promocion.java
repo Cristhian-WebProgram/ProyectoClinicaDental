@@ -23,7 +23,7 @@ import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
-@Table(name = "promocion")
+@Table(name = "Promocion")
 public class Promocion implements Serializable {
 
 

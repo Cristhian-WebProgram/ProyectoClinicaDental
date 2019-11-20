@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="ISO-8859-1"></meta>
-<title>HorarioMensual</title>
+<title>HistorialClinico</title>
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <link
 	href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
@@ -52,7 +52,7 @@
 			<select class="form-control"  th:field="*{servicio.idServicio}">
 			<option th:each="servicio ${listaServicios}" th:value="${servicio.idServicio}" 
 				th:text="${servicio.idServicio}" 
-				th:selected="(${especialista.idEspecialista}==*{servicio.idServicio})"></option>
+				th:selected="(${servicio.idServicio}==*{servicio.idServicio})"></option>
 			</select>
 
 
@@ -76,7 +76,7 @@
 	</div>
 	</div>
 	<button type="submit" class="btn btn-primary">Aceptar</button>
-	<a href="/tip/listar" class="btn btn-danger">Cancelar</a>
+	<a href="/historialclinico/listar" class="btn btn-danger">Cancelar</a>
 	</form>
 	</div>
 	<div th:replace="fragments/footer :: footer"></div>

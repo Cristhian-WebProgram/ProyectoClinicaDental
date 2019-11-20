@@ -17,7 +17,7 @@ public boolean insertar(Especialista Especialista);
 	
 	public List<Especialista> listar();
 	
-	List<Especialista> findByEspecialista(String nombreEspecialista);
+	public List<Especialista> findByEspecialista(String nombreEspecialista);
 
 	
 }

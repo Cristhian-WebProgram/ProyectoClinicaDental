@@ -21,7 +21,7 @@ import javax.persistence.ManyToOne;
 
 
 @Entity
-@Table(name = "programacion")
+@Table(name = "ProgramacionMensual")
 public class ProgramacionMensual implements Serializable{
 	
 	private static final long serialVersionUID = 1L;

@@ -44,7 +44,7 @@
 
 			<div class="alert alert-danger"
 			th:if="${#fields.hasErrors('telefono')}"
-			th:errors="*{telefono"></div>
+			th:errors="*{telefono"}></div>
 			
 			
 			<label for="direccionEspecialista">Direccion:</label>
@@ -57,7 +57,7 @@
 			
 			<label for="nombreEspecialidad">NombreEspecialidad:</label>
 			<input type="text" th:field="*{nombreEspecialidad}"
-			class="form-control" id="nombreespecialidad"></input>		
+			class="form-control" id="nombreespecialidad1"></input>		
 
 			<div class="alert alert-danger"
 			th:if="${#fields.hasErrors('nombreEspecialidad')}"
@@ -68,7 +68,7 @@
 	</div>
 	</div>
 	<button type="submit" class="btn btn-primary">Aceptar</button>
-	<a href="/tip/listar" class="btn btn-danger">Cancelar</a>
+	<a href="/especialista/listar" class="btn btn-danger">Cancelar</a>
 	</form>
 	</div>
 	<div th:replace="fragments/footer :: footer"></div>

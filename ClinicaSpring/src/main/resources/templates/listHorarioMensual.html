@@ -45,10 +45,11 @@
 						</thead>
 						<tbody>
 							<tr th:each="p: ${listaHorarioMensuales}">
+							<td th:text="${p.idHorarioMensual}"></td>
 								<td th:text="${p.horarinicio}"></td>
 								<td th:text="${p.horafin}"></td>
 								<td th:text="${p.numerodias}"></td>
-								<td th:text="${p.especialista.IdEspecialista}"></td>
+								<td th:text="${p.especialista.idEspecialista}"></td>
 								
 								<td><a th:href="@{/horariomensual/eliminar?id=}+${p.idHorarioMensual}">Eliminar</a></td>
 								<td><a th:href="@{'/horariomensual/modificar/' + ${p.idHorarioMensual}}">Modificar</a></td>

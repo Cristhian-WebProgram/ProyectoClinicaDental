@@ -6,6 +6,7 @@ import java.util.List;
 import pe.edu.upc.spring.entity.Consultorio;
 
 
+
 public interface IConsultorioService {
 
 	public boolean insertar(Consultorio Consultorio);
@@ -16,11 +17,9 @@ public interface IConsultorioService {
 	
     public Consultorio listarId(int idConsultorio);
     
- 
-	
 	public List<Consultorio> listar();
 	
-	List<Consultorio> findByConsultorio(String nombreConsultorio);
+	public Consultorio buscarId(int idConsultorio);
 	
 	
 	

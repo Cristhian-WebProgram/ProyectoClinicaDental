@@ -59,8 +59,9 @@ public class PromocionServiceImpl implements IPromocionService {
 	}
 	
 	@Override
-	public List<Promocion> findByPromocion(String nombrePromocion) {
-		return cPromocion.findByNamePromocion(nombrePromocion);
+	public Promocion buscarId(int idPromocion) {
+		return cPromocion.findOne(idPromocion);
 	}
+	
 
 }

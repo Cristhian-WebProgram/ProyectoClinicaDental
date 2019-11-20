@@ -1,5 +1,6 @@
 package pe.edu.upc.spring.controller;
 
+
 import java.util.Map;
 
 import javax.validation.Valid;
@@ -18,6 +19,7 @@ import org.springframework.validation.BindingResult;
 
 import pe.edu.upc.spring.service.IConsultorioService;
 import pe.edu.upc.spring.entity.Consultorio;
+
 
 @Controller
 @RequestMapping("/consultorio")
@@ -110,5 +112,6 @@ public class ConsultorioController {
 		cService.listarId(consultorio.getIdConsultorio());
 		return "listConsultorios";
 	}
+	
 	
 }

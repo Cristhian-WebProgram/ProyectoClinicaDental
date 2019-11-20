@@ -18,11 +18,11 @@ import javax.persistence.Table;
 
 
 
-/*@Entity
-@Table(name = "detalleboleta")*/
+@Entity
+@Table(name = "DetalleBoleta")
 public class DetalleBoleta {
 	
-	/*@Id
+	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int iddetalleboleta;
 	
@@ -84,9 +84,9 @@ public class DetalleBoleta {
 	public void setIdPromocion(Promocion idPromocion) {
 		this.idPromocion = idPromocion;
 	}
-public Double calculateAmount() {
+    public Double calculateAmount() {
 		
 		return cantidadservicios*idServicio.getCosto();
   
-}*/
+}
 }

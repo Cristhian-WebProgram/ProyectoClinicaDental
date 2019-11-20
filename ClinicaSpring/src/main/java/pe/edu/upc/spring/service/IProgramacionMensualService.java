@@ -2,6 +2,7 @@ package pe.edu.upc.spring.service;
 
 import java.util.List;
 
+
 import pe.edu.upc.spring.entity.ProgramacionMensual;
 
 public interface IProgramacionMensualService {
@@ -17,6 +18,6 @@ public boolean insertar(ProgramacionMensual ProgramacionMensual);
 	
 	public List<ProgramacionMensual> listar();
 	
-	List<ProgramacionMensual> findByProgramacionMensual(String nombreProgramacionMensual);
+	public ProgramacionMensual buscarId(int idProgramacionMensual);
 	
 }

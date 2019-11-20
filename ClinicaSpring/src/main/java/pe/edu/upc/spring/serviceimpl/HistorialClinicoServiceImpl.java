@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+
 import pe.edu.upc.spring.entity.HistorialClinico;
 import pe.edu.upc.spring.repository.IHistorialClinicoDAO;
 import pe.edu.upc.spring.service.IHistorialClinicoService;
@@ -58,19 +59,13 @@ public class HistorialClinicoServiceImpl implements IHistorialClinicoService {
 	@Override
 	@Transactional(readOnly=true)
 	public List<HistorialClinico> listar() {
-		// TODO Auto-generated method stub
+		
 		return hHistorialClinico.findAll();
 	}
-
+	
 	@Override
-	public List<HistorialClinico> findByHistorialClinico(String nombreHistorialClinico) {
-		// TODO Auto-generated method stub
-		return null;
+	public HistorialClinico buscarId(int idHistorialClinico) {
+		return hHistorialClinico.findOne(idHistorialClinico);
 	}
 	
-	/*@Override
-	public List<HistorialClinico> findByHistorialClinico(String nombreHistorialClinico) {
-		return hHistorialClinico.findByNameHistorialClinico(nombreHistorialClinico);
-	}*/
-
 }
