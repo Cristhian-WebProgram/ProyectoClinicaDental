@@ -34,13 +34,14 @@ public class BoletaServiceImpl implements IBoletaService {
 
 	@Override
 	public Optional<Boleta> fetchByVoucherIdWithPatientWhithVoucherDetailWithMedicine(int id) throws Exception {
-		return boletaDao.fetchByVoucherIdWithPatientWhithVoucherDetailWithMedicine(id);
+		return null;
 	}
 
   @Override
     public Boleta buscarPorId(int idBoleta) {
 	return boletaDao.findOne(idBoleta);
 }
+
 
 
 }
